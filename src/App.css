@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid grey;
+}
+
+header{
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid grey;
+}
+
+/* label[for="searchPostInput"] {
+    position: absolute;
+    left: -1000000px;
+} */
+
+.searchPostForm label{
+    position: absolute;
+    left: -1000000px;
+}
+
+.searchPostForm input{
+    min-width: 40vw;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    outline: 0px;
+    padding: 0.3rem;
+    font-size: 1rem;
+}
+
+nav{
+    display: flex;
+    border: 1px solid grey;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    margin-right: 3rem;
+}
+
+nav li{
+    padding: 1rem;
+}
+
+main{
+    flex: 1;
+    overflow-y: scroll;
+
+    padding: 1rem;
+}
+
+article{
+    height: 34%;
+    margin-bottom: 1rem;
+}
+
+article h2{
+    display: inline-block;
+    width: fit-content;
+}
+
+.newPostForm{
+    display: flex;
+    flex-direction: column;
+}
+
+.newPostForm label{
+    margin-top: 0.5rem;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+}
+
+.newPostForm input{
+    height: 2.5rem;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.newPostForm textarea {
+    resize: none;
+    font-size: 1rem;
+    height: 150px;
+    margin-bottom: 2rem;
+}
+
+.newPostForm button{
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    font-size: 1rem;
+}
+
+.missingPage{
+    display: grid;
+    text-align: center;
+}
+
+footer{
+    display: grid;
+    padding: 0.5rem;
+    place-content: center;
+    border: 1px solid grey;
+}
