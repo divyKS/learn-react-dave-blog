@@ -21,7 +21,7 @@ function useWindowWidthCalculator(){
 
         const cleanUp = () => {
             window.removeEventListener("resize", calcDimensions);
-            console.log("The resize even listener from window object has been removed");
+            console.log("USE_WINDOW_WIDTH_CALCULATOR: The resize even listener from window object has been removed");
         };
         
         return cleanUp;

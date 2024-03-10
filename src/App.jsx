@@ -16,6 +16,7 @@ import UpdatePost from './Components/UpdatePost';
 import api from './api/posts'
 
 import useWindowWidthCalculator from './hooks/useWindowWidth'
+import useAxiosFetch from './hooks/useAxiosFetch';
 
 function App() {
     const navigate = useNavigate();
@@ -29,6 +30,8 @@ function App() {
     const [updateBody, setUpdateBody] = useState("");
 
 	const { width } = useWindowWidthCalculator();
+
+	const { data: dataFromCH, isLoading, fetchError } = useAxiosFetch("http://localhost:3500/posts");
 
 	const handleDelete = async (id) => {
 		try {
@@ -111,25 +114,29 @@ function App() {
 		}
 	}
 
-	useEffect(()=>{
-		const fetchData = async () => {
-			try{
-				const response = await api.get('/posts');
-				const postsData = response.data;
-				setPosts(postsData);
-			} catch (e) {
-				if(e.response){
-					console.log(e.response.data);
-					console.log(e.response.status);
-					console.log(e.response.headers);
-				} else {
-					console.log(e.message);
-				}
-			}
+	// useEffect(()=>{
+	// 	const fetchData = async () => {
+	// 		try{
+	// 			const response = await api.get('/posts');
+	// 			const postsData = response.data;
+	// 			setPosts(postsData);
+	// 		} catch (e) {
+	// 			if(e.response){
+	// 				console.log(e.response.data);
+	// 				console.log(e.response.status);
+	// 				console.log(e.response.headers);
+	// 			} else {
+	// 				console.log(e.message);
+	// 			}
+	// 		}
 
-		}
-		fetchData();
-	}, []);
+	// 	}
+	// 	fetchData();
+	// }, []);
+
+	useEffect(()=>{
+		setPosts(dataFromCH);
+	}, [dataFromCH])
 
     useEffect(()=>{
         const filteredPosts = posts.filter((post)=> (
@@ -146,7 +153,7 @@ function App() {
 				<Nav search={search} setSearch={setSearch} />
 
 				<Routes>
-					<Route path="/" element={<Home posts={searchResults} />} />
+					<Route path="/" element={<Home posts={searchResults} isLoading={isLoading} fetchError={fetchError}/>} />
 					<Route path="/post" element={<NewPost postTitle={postTitle} setPostTitle={setPostTitle} postBody={postBody} setPostBody={setPostBody} handleSubmit={handleSubmit}/>}/>
 					<Route path="/post/:id" element={<PostPage posts={posts} handleDelete={handleDelete} />}/>
 					<Route path="/about" element={<About />} />
