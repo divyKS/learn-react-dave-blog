@@ -1,7 +1,8 @@
-const Header = ({ heading }) => {
+const Header = ({ heading, width }) => {
     return (
       <header>
-          <h1>{heading}</h1>
+          <h1>{heading}<sup>{width}</sup></h1>
+
       </header>
     )
   }

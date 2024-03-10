@@ -15,6 +15,8 @@ import UpdatePost from './Components/UpdatePost';
 
 import api from './api/posts'
 
+import useWindowWidthCalculator from './hooks/useWindowWidth'
+
 function App() {
     const navigate = useNavigate();
 
@@ -26,6 +28,7 @@ function App() {
     const [updateTitle, setUpdateTitle] = useState("");
     const [updateBody, setUpdateBody] = useState("");
 
+	const { width } = useWindowWidthCalculator();
 
 	const handleDelete = async (id) => {
 		try {
@@ -139,7 +142,7 @@ function App() {
 	return (
 		<>	
 			<div className="container">
-				<Header heading="My Blog Site" />
+				<Header heading="My Blog Site" width={width} />
 				<Nav search={search} setSearch={setSearch} />
 
 				<Routes>

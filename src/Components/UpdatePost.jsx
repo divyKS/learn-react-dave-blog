@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom"
+
 const UpdatePost = ({ posts, handleUpdate, updateTitle, updateBody, setUpdateTitle, setUpdateBody }) => {
     const { id } = useParams();
     const post = posts.find((post) => post.id.toString() === id);
