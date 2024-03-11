@@ -12,7 +12,7 @@ import PostPage from './Components/PostPage';
 import Missing from './Components/Missing';
 import UpdatePost from './Components/UpdatePost';
 
-import { DataProvider } from './context/DataContext';
+import { DataProvider } from './Context/DataContext';
 
 import useWindowWidthCalculator from './hooks/useWindowWidth'
 
@@ -27,11 +27,11 @@ function App() {
 				<DataProvider>
 					<Nav/>
 					<Routes>
-						<Route path="/" element={<Home/>} />
-						<Route path="/post" element={<NewPost/>}/>
-						<Route path="/post/:id" element={<PostPage/>}/>
+						<Route path="/" element={<Home />} />
+						<Route path="/post" element={<NewPost />}/>
+						<Route path="/post/:id" element={<PostPage />}/>
 						<Route path="/about" element={<About />} />
-						<Route path="/update/:id" element={<UpdatePost/>} />
+						<Route path="/update/:id" element={<UpdatePost />} />
 						<Route path="*" element={<Missing />} />
 					</Routes>
 				</DataProvider>

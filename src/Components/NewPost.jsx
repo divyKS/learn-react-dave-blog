@@ -1,8 +1,17 @@
+import api from '../api/posts'
+
 import { useContext } from "react";
-import DataContext from "../context/DataContext";
+import { useNavigate } from "react-router-dom";
+
+import DataContext from "../Context/DataContext";
+
 
 const NewPost = () => {
-    const { postTitle, postBody, setPostTitle, setPostBody } = useContext(DataContext);
+    const navigate = useNavigate();
+
+    const { posts, setPosts, 
+            postTitle, setPostTitle, 
+            postBody, setPostBody } = useContext(DataContext);
     
     const handleSubmit = async (dateObj) => {
         const newId = posts.length ? posts[posts.length - 1].id + 1: 1; 
