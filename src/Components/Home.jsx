@@ -1,18 +1,14 @@
 import Feed from './Feed'
 
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import DataContext from '../Context/DataContext'
 
-import useAxiosFetch from '../hooks/useAxiosFetch';
 
 const Home = () => {
-	
-  const { data, isLoading, fetchError } = useAxiosFetch("http://localhost:3500/posts");
-  const { posts, setPosts, searchResults } = useContext(DataContext);
-
-  useEffect(()=>{  
-		setPosts(data);
-	}, [data])
+  
+  console.log("Home before context");
+  const { posts, searchResults, isLoading, fetchError } = useContext(DataContext);
+  console.log("Home after context");
 
     return (
       <main>

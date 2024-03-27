@@ -7,12 +7,13 @@ import { useNavigate } from "react-router-dom";
 
 const UpdatePost = () => {
     const navigate = useNavigate();
+    const { id } = useParams();
+
     const { posts, setPosts } = useContext(DataContext)
 
     const [updateTitle, setUpdateTitle] = useState("")
     const [updateBody, setUpdateBody] = useState("");
 
-    const { id } = useParams();
     const post = posts.find((post) => post.id.toString() === id);
     
     const handleUpdate = async (dateObj, id) => {
@@ -59,7 +60,7 @@ const UpdatePost = () => {
 
     return (
         <main>
-            {updateTitle && 
+            {id && 
                 <>
                     <h2>Update your post!</h2>            
                     <form className="updatePostForm" onSubmit={(e) => {e.preventDefault();handleUpdate(new Date(), id)}}>
@@ -88,7 +89,7 @@ const UpdatePost = () => {
                     </form>
                 </>
             }
-            {!updateTitle && 
+            {!id && 
                 <>
                     <p>This page does not exist.</p>
                     <Link to="/">

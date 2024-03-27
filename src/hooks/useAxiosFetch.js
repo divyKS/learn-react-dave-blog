@@ -2,9 +2,12 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 function useAxiosFetch(dataURL){
+
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [fetchError, setFetchError] = useState(null);
+
+    console.log("useAxiosFetch rendered")
 
     useEffect(()=>{
         let isMounted = true;
