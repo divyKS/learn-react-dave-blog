@@ -1,10 +1,12 @@
 const Header = ({ heading, width }) => {
-    return (
-      <header>
-          <h1>{heading}<sup>{width}</sup></h1>
+  return (
+    <header>
+      <h1>
+        {heading}
+        <sup>{width}</sup>
+      </h1>
+    </header>
+  );
+};
 
-      </header>
-    )
-  }
-  
-  export default Header
+export default Header;
